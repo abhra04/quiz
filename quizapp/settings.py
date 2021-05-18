@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-s61(&(z@8n#_rx&nv6m&zj#a+%t!kk0yih&)r2j9ize5gk30#@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','https://quizyapp.herokuapp.com/']
+ALLOWED_HOSTS = ['127.0.0.1','quizyapp.herokuapp.com']
 
 
 # Application definition
