@@ -1,0 +1,20 @@
+{%  extends 'usermain.html' %}
+{% block content %}
+
+<a href="http://127.0.0.1:8000/questions/leaderboard/Easy"> Only Easy </a>
+<br>
+<a href="http://127.0.0.1:8000/questions/leaderboard/Medium"> Only Medium</a>
+<br>
+<a href="http://127.0.0.1:8000/questions/leaderboard/Hard"> Only Difficult</a>
+<br>
+<a href="http://127.0.0.1:8000/questions/leaderboard/combined"> All Combined</a>
+
+<h1>Leader Board</h1>
+<h2>User&nbsp;   Score   &nbsp;  Time Taken</h2>
+{% for scores in form.values%}
+<h2>
+  {{scores.0}}   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{scores.1}}   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{scores.2}} Seconds
+ </h2>
+  <br>
+{%endfor%}
+{% endblock %}

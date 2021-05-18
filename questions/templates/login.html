@@ -1,0 +1,22 @@
+
+{%  extends 'main.html' %}
+{% block content %}
+<br>
+<form method="POST" action="">
+		{% csrf_token %}
+			
+			<p>Enter User Name
+			<input type="text" name="username" placeholder="Username..."> </p>
+						
+
+			<p>Enter PassWord
+			<input type="password" name="password" placeholder="Password..." ></p>
+							
+			<br>
+			<input type="submit" value="Login"></p>
+				   			
+</form>
+
+<a href="http://127.0.0.1:8000/questions/register/"> Don't Have an Account </a>
+
+{% endblock %}

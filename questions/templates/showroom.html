@@ -1,0 +1,11 @@
+{%  extends 'usermain.html' %}
+{% block content %}
+
+<h1>Available Rooms</h1><br>
+
+{% for score in form.items %}
+
+	<a href= {{ score.1.0  }} > {{score.0}}  </a>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href= {{ score.1.1 }} >Leader Board  </a>
+	<br>
+{% endfor %}
+{% endblock %}

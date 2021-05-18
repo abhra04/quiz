@@ -1,0 +1,146 @@
+{%  extends 'usermain.html' %}
+{% block content %}
+
+<br>
+<form action="" method="POST">
+    {% csrf_token %}
+    Question 1 : {{ form.promt1 }}
+    <br>
+    Option 1 : {{ form.opt11 }}
+    <br>
+    Option 2 : {{ form.opt12 }}
+    <br>
+    Option 3 : {{ form.opt13 }}
+    <br>
+    Option 4 : {{ form.opt14 }}
+    <br>
+    Correct Answer : {{ form.correct1 }}
+    <br>
+    <br>
+    Question 2 : {{ form.promt2 }}
+    <br>
+    Option 1 : {{ form.opt21 }}
+    <br>
+    Option 2 : {{ form.opt22 }}
+    <br>
+    Option 3 : {{ form.opt23 }}
+    <br>
+    Option 4 : {{ form.opt24 }}
+    <br>
+    Correct Answer : {{ form.correct2 }}
+    <br>
+    <br>
+    Question 3 : {{ form.promt3 }}
+    <br>
+    Option 1 : {{ form.opt31 }}
+    <br>
+    Option 2 : {{ form.opt32 }}
+    <br>
+    Option 3 : {{ form.opt33 }}
+    <br>
+    Option 4 : {{ form.opt34 }}
+    <br>
+    Correct Answer : {{ form.correct3 }}
+    <br>
+    <br>
+    Question 4 : {{ form.promt4 }}
+    <br>
+    Option 1 : {{ form.opt41 }}
+    <br>
+    Option 2 : {{ form.opt42 }}
+    <br>
+    Option 3 : {{ form.opt43 }}
+    <br>
+    Option 4 : {{ form.opt44 }}
+    <br>
+    Correct Answer : {{ form.correct4 }}
+    <br>
+    <br>
+    Question 5 : {{ form.promt5 }}
+    <br>
+    Option 1 : {{ form.opt51 }}
+    <br>
+    Option 2 : {{ form.opt52 }}
+    <br>
+    Option 3 : {{ form.opt53 }}
+    <br>
+    Option 4 : {{ form.opt54 }}
+    <br>
+    Correct Answer : {{ form.correct5 }}
+    <br>
+    <br>
+    Question 6 : {{ form.promt6 }}
+    <br>
+    Option 1 : {{ form.opt61 }}
+    <br>
+    Option 2 : {{ form.opt62 }}
+    <br>
+    Option 3 : {{ form.opt63 }}
+    <br>
+    Option 4 : {{ form.opt64 }}
+    <br>
+    Correct Answer : {{ form.correct6 }}
+    <br>
+    <br>
+    Question 7 : {{ form.promt7 }}
+    <br>
+    Option 1 : {{ form.opt71 }}
+    <br>
+    Option 2 : {{ form.opt72 }}
+    <br>
+    Option 3 : {{ form.opt73 }}
+    <br>
+    Option 4 : {{ form.opt74 }}
+    <br>
+    Correct Answer : {{ form.correct7 }}
+    <br>
+    <br>
+    Question 8 : {{ form.promt8 }}
+    <br>
+    Option 1 : {{ form.opt81 }}
+    <br>
+    Option 2 : {{ form.opt82 }}
+    <br>
+    Option 3 : {{ form.opt83 }}
+    <br>
+    Option 4 : {{ form.opt84 }}
+    <br>
+    Correct Answer : {{ form.correct8 }}
+    <br>
+    <br>
+    Question 9 : {{ form.promt9 }}
+    <br>
+    Option 1 : {{ form.opt91 }}
+    <br>
+    Option 2 : {{ form.opt92 }}
+    <br>
+    Option 3 : {{ form.opt93 }}
+    <br>
+    Option 4 : {{ form.opt94 }}
+    <br>
+    Correct Answer : {{ form.correct9 }}
+    <br>
+    <br>
+
+    Question 10 : {{ form.promt10 }}
+    <br>
+    Option 1 : {{ form.opt101 }}
+    <br>
+    Option 2 : {{ form.opt102 }}
+    <br>
+    Option 3 : {{ form.opt103 }}
+    <br>
+    Option 4 : {{ form.opt104 }}
+    <br>
+    Correct Answer : {{ form.correct10 }}
+    <br>
+
+
+
+    <br>
+
+    <input type="submit" value="Create">
+</form>
+
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{%  extends 'main.html' %}
+{% block content %}
+<br>
+<p> Enter Strong Password ( atleast 1 digit , one special character , one lower case , one upper case alphabet , atleast 8 character long ) </p>
+<h1>Register Here</h1>
+<form method="POST" action="">
+	{% csrf_token %}
+<p>Choose UserName    : {{form.username}} </p>
+<br>
+<p>Enter Email        : {{form.email}} </p>
+<br>
+<p>Enter Password : {{form.password1}}</p>
+<br>
+<p>Confirm Password : {{form.password2}}</p>
+<br>
+<input type="submit" value="Register Account">
+</form>
+
+{%  endblock %}

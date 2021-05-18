@@ -1,0 +1,12 @@
+{%  extends 'usermain.html' %}
+{% block content %}
+
+<h1>Leader Board</h1>
+<h2>User&nbsp;   Score   &nbsp;  Time Taken</h2>
+{% for scores in form.values%}
+<h2>
+  {{scores.0}}   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{scores.1}}   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{scores.2}} Seconds
+ </h2>
+  <br>
+{%endfor%}
+{% endblock %}
