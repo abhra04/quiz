@@ -194,7 +194,7 @@ def quizInterface(request, pk_test):
 				user_response = form.cleaned_data
 				score = 0 
 				for k in user_response.keys():
-					if user_response[k] == correct_answer[k]:
+					if user_response[k].lower() == correct_answer[k].lower():
 						score = score + 1 
 
 				#print(score)
@@ -345,7 +345,7 @@ def loadpvtquiz(request,pk):
 			user_response = form.cleaned_data
 			score = 0 
 			for k in user_response.keys():
-				if user_response[k] == correct_answer[k]:
+				if user_response[k].lower() == correct_answer[k].lower():
 					score = score + 1 
 
 				#print(score)
