@@ -45,6 +45,7 @@ def leaderboard(request,pk_test):
 		arr.append(item)
 	j = 0 
 	new_arr = []
+	var =1
 	for item in arr:
 		#print(item['userID'])
 		username = User.objects.get(id=item['userID'])
@@ -53,8 +54,14 @@ def leaderboard(request,pk_test):
 			f = item['end'].strftime("%H:%M:%S")
 		except:
 			f = 'Not Found'
-		new_arr.append([x['username'] , int(item['marks']) ,int(item['duration'])  ])
+		new_arr.append([x['username'] , int(item['marks']) ,int(item['duration']) ,var  ])
+		var = var + 1 
 	new_arr.sort(key=lambda x:(x[1],-x[2]) , reverse =True)
+	var = 1 
+	for item in new_arr:
+		item[-1] = var
+		var = var + 1 
+
 	for item in new_arr:
 		all_score[j] = item 
 		j = j + 1 
@@ -120,7 +127,7 @@ def homePage(request):
 	previous_scores = dict()
 	j = 1
 	for item in arr:
-		previous_scores[ 'https://quizyapp.herokuapp.com/questions/review/'+ str(item['quizID'])] = (item['marks'],item['category'],item['difficulty'],item['end'])
+		previous_scores[ 'http://127.0.0.1:8000/questions/review/'+ str(item['quizID'])] = (item['marks'],item['category'],item['difficulty'],item['end'])
 
 
 	return render(request, 'homePage.html', {'form': previous_scores})
@@ -163,7 +170,7 @@ def get_questions(request):
 			quiz = questions(**cleaned_data)
 			quiz.save()
 			quiz_id = str(quiz.id)
-			return redirect('https://quizyapp.herokuapp.com/questions/quiz/'+str(quiz_id))   #Find a way to call this function from a different url path
+			return redirect('http://127.0.0.1:8000/questions/quiz/'+str(quiz_id))   #Find a way to call this function from a different url path
 	form = detailForm()
 	return render(request, 'generateQuestions.html', {'form': form})
 @login_required(login_url = 'loginPage')
@@ -194,7 +201,7 @@ def quizInterface(request, pk_test):
 				user_response = form.cleaned_data
 				score = 0 
 				for k in user_response.keys():
-					if user_response[k].lower() == correct_answer[k].lower():
+					if user_response[k] == correct_answer[k]:
 						score = score + 1 
 
 				#print(score)
@@ -261,7 +268,7 @@ def pvtquiz(request):
 			obj = pvtquizinfo(**quiz_details)
 			obj.save()
 			x = model_to_dict(obj)
-		return redirect('https://quizyapp.herokuapp.com/questions/pvtquizquestions/' + str(x['id']))      #Direct to the page to add questions
+		return redirect('http://127.0.0.1:8000/questions/pvtquizquestions/' + str(x['id']))      #Direct to the page to add questions
 
 	return render(request , 'pvtquiz.html' , {'form':form}  )
 
@@ -276,7 +283,7 @@ def makepvtquestions(request,quizid):
 			question_detail['pvtquizID'] = quizid
 			obj = privatequestion(**question_detail)
 			obj.save()
-			return redirect('https://quizyapp.herokuapp.com/questions/homepage'  )
+			return redirect('http://127.0.0.1:8000/questions/homepage'  )
 
 	return render(request , 'pvtquestion.html' , {'form' :form } )
 @login_required(login_url = 'loginPage')
@@ -299,12 +306,12 @@ def authenticate_load_quiz(request,pk):
 						ses = { 'beg':time_start , 'quizid':str( y['id'] ) , 'userid' : str(request.user.id)   }
 						obj = pvtbegin(**ses)
 						obj.save()
-						return redirect('https://quizyapp.herokuapp.com/questions/loadpvtquiz/' + str(y['id']) )
+						return redirect('http://127.0.0.1:8000/questions/loadpvtquiz/' + str(y['id']) )
 				else:
 					return render(request , 'wrongpass.html' )
 				
 			except:
-				return redirect('https://quizyapp.herokuapp.com/questions/enterquiz/' + str(pk))
+				return redirect('http://127.0.0.1:8000/questions/enterquiz/' + str(pk))
 
 	return render(request , 'enterquiz.html' , {'form' :form } )
 @login_required(login_url = 'loginPage')
@@ -317,8 +324,8 @@ def allrooms(request):
 		arr.append(y)
 	i = 1 
 	for item in arr:
-		link = 'https://quizyapp.herokuapp.com/questions/enterquiz/' + str(item['name'])
-		link2 = 'https://quizyapp.herokuapp.com/questions/pvtleaderboard/' + str(item['id'])
+		link = 'http://127.0.0.1:8000/questions/enterquiz/' + str(item['name'])
+		link2 = 'http://127.0.0.1:8000/questions/pvtleaderboard/' + str(item['id'])
 		d[str(item['name'])] = (link,link2)
 		#print(d)
 		i = i  + 1
@@ -345,7 +352,7 @@ def loadpvtquiz(request,pk):
 			user_response = form.cleaned_data
 			score = 0 
 			for k in user_response.keys():
-				if user_response[k].lower() == correct_answer[k].lower():
+				if user_response[k] == correct_answer[k]:
 					score = score + 1 
 
 				#print(score)
