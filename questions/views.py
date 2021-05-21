@@ -127,7 +127,7 @@ def homePage(request):
 	previous_scores = dict()
 	j = 1
 	for item in arr:
-		previous_scores[ 'http://127.0.0.1:8000/questions/review/'+ str(item['quizID'])] = (item['marks'],item['category'],item['difficulty'],item['end'])
+		previous_scores[ '/questions/review/'+ str(item['quizID'])] = (item['marks'],item['category'],item['difficulty'],item['end'])
 
 
 	return render(request, 'homePage.html', {'form': previous_scores})
@@ -170,7 +170,7 @@ def get_questions(request):
 			quiz = questions(**cleaned_data)
 			quiz.save()
 			quiz_id = str(quiz.id)
-			return redirect('http://127.0.0.1:8000/questions/quiz/'+str(quiz_id))   #Find a way to call this function from a different url path
+			return redirect('/questions/quiz/'+str(quiz_id))   #Find a way to call this function from a different url path
 	form = detailForm()
 	return render(request, 'generateQuestions.html', {'form': form})
 @login_required(login_url = 'loginPage')
@@ -268,7 +268,7 @@ def pvtquiz(request):
 			obj = pvtquizinfo(**quiz_details)
 			obj.save()
 			x = model_to_dict(obj)
-		return redirect('http://127.0.0.1:8000/questions/pvtquizquestions/' + str(x['id']))      #Direct to the page to add questions
+		return redirect('/questions/pvtquizquestions/' + str(x['id']))      #Direct to the page to add questions
 
 	return render(request , 'pvtquiz.html' , {'form':form}  )
 
@@ -283,7 +283,7 @@ def makepvtquestions(request,quizid):
 			question_detail['pvtquizID'] = quizid
 			obj = privatequestion(**question_detail)
 			obj.save()
-			return redirect('http://127.0.0.1:8000/questions/homepage'  )
+			return redirect('/questions/homepage'  )
 
 	return render(request , 'pvtquestion.html' , {'form' :form } )
 @login_required(login_url = 'loginPage')
@@ -306,12 +306,12 @@ def authenticate_load_quiz(request,pk):
 						ses = { 'beg':time_start , 'quizid':str( y['id'] ) , 'userid' : str(request.user.id)   }
 						obj = pvtbegin(**ses)
 						obj.save()
-						return redirect('http://127.0.0.1:8000/questions/loadpvtquiz/' + str(y['id']) )
+						return redirect('/questions/loadpvtquiz/' + str(y['id']) )
 				else:
 					return render(request , 'wrongpass.html' )
 				
 			except:
-				return redirect('http://127.0.0.1:8000/questions/enterquiz/' + str(pk))
+				return redirect('/questions/enterquiz/' + str(pk))
 
 	return render(request , 'enterquiz.html' , {'form' :form } )
 @login_required(login_url = 'loginPage')
@@ -324,8 +324,8 @@ def allrooms(request):
 		arr.append(y)
 	i = 1 
 	for item in arr:
-		link = 'http://127.0.0.1:8000/questions/enterquiz/' + str(item['name'])
-		link2 = 'http://127.0.0.1:8000/questions/pvtleaderboard/' + str(item['id'])
+		link = '/questions/enterquiz/' + str(item['name'])
+		link2 = '/questions/pvtleaderboard/' + str(item['id'])
 		d[str(item['name'])] = (link,link2)
 		#print(d)
 		i = i  + 1
