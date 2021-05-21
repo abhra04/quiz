@@ -3,18 +3,10 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
-<style type="text/css">
-	
-	.center {
-  width: 1500px;
-}
-</style>
 
 
 {%  extends 'usermain.html' %}
 {% block content %}
-
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -28,50 +20,42 @@
     <title>Leader Board</title>
   </head>
   <body>
-    <h1>Leader Board</h1>
-    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-  <div class="btn-group mr-2 center" role="group" aria-label="First group">
-    <button type="button" class="btn btn-secondary" onclick="location.href='/questions/leaderboard/Easy'">Easy</button>
-    <button type="button" class="btn btn-secondary"onclick="location.href='/questions/leaderboard/Medium'">Medium</button>
-    <button type="button" class="btn btn-secondary" onclick="location.href='/questions/leaderboard/Hard'">Hard</button>
-    <button type="button" class="btn btn-secondary" onclick="location.href='/questions/leaderboard/combined'">All</button>
-  </div>
-</div>
+
+<br>
+<button type="button" class="btn btn-danger btn-lg btn-block"onclick="location.href='/questions/createQuestions'">Create a New Quiz</button>
+<br>
+<button type="button" class="btn btn-dark btn-lg btn-block"onclick="location.href='/questions/privatequiz'">Create a Private Quiz</button>
+<br>
+<button type="button" class="btn btn-success btn-lg btn-block"
+onclick="location.href='/questions/allrooms'">Enter a private quiz</button> 	
 <br>
 
 
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
 
-    <table class="table table-hover">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">Rank</th>
-      <th scope="col">Name</th>
-      <th scope="col">Score</th>
-      <th scope="col">Time Taken(Seconds)</th>
-    </tr>
-  </thead>
-  <tbody>
-  	
-  	{% for scores in form.values%}
-    <tr>
-      <th scope="row">{{scores.3}}</th>
-      <td>{{scores.0}} </td>
-      <td>{{scores.1}} </td>
-      <td>{{scores.2}}</td>
+<h1>Previously Attempted Quizes</h1><br>
 
-    </tr>
-    {%endfor%}
-    
-  </tbody>
-</table>
-
-  </body>
+{% for score in form.items %}
 
 
+<div class="card text-center">
+  <div class="card-header">
+    {{score.1.1}}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Your Score : {{ score.1.0 }} </h5>
+    <p class="card-text">Difficulty : {{score.1.2}} </p>
+    <a href="{{score.0}}" class="btn btn-primary">Review</a>
+  </div>
+  <div class="card-footer text-muted">
+    {{score.1.3}}
+  </div>
+</div>
+<br>
+{% endfor %}
+{% endblock%}
 
+
+</body>
 </html>
-{% endblock %}
