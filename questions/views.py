@@ -419,4 +419,6 @@ def pvtleaderboard(request,pk):
 """
 Future Plans:
 Scrape websited and articles and create automatic questions using ml applications
+Option to make the room password visible
+Use api's to provide users fun facts and trivia on several topics
 """
