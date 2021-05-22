@@ -392,11 +392,17 @@ def pvtleaderboard(request,pk):
 		y = model_to_dict(item)
 		arr.append(y)
 	new_arr = []
+	var = 0 
 	for item in arr:
 		username = User.objects.get(id=item['userID'])
 		x = model_to_dict(username)
 		if item['time'] != None:
-			new_arr.append([x['username'] , int(item['marks']) ,int(item['time'])  ])
+			new_arr.append([x['username'] , int(item['marks']) ,int(item['time']) ,var ])
+	var = 1 
+	for item in new_arr:
+		item[-1] = var
+		var = var + 1 
+	new_arr.sort(key=lambda x:(x[1],-x[2]) , reverse =True)
 	new_arr.sort(key=lambda x:(x[1],-x[2]) , reverse =True)
 	all_score = {}
 	j = 0 
