@@ -1,70 +1,104 @@
 
+{%  extends 'usermain.html' %}
+{% block content %}
+<style>
+.wrapper {
+ 
+  text-align: center;
+}
+</style>
+<div class="wrapper" >
 <form action="" method="post">
     {% csrf_token %}
 
-
+    
     <p><strong>Q1</strong>: {{ form1.promt1 }}</p>
-    {{form1.opt11}}<br>
-    {{form1.opt12}}<br>
-    {{form1.opt13}}<br>
-    {{form1.opt14}}<br>
-    <strong>Type Your Response:</strong>{{form2.user_response1}}<br>
+    <strong>(A)</strong>&nbsp;{{form1.opt11}}<br>
+    <strong>(B)</strong>&nbsp;{{form1.opt12}}<br>
+    <strong>(C)</strong>&nbsp;{{form1.opt13}}<br>
+    <strong>(D)</strong>&nbsp;{{form1.opt14}}<br>
+    <br>
+    <strong>Type Your Response:</strong>&nbsp;{{form2.user_response1}}<br>
+    <br>
     <p><strong>Q2</strong>: {{ form1.promt2 }}</p>
-    {{form1.opt21}}<br>
-    {{form1.opt22}}<br>
-    {{form1.opt23}}<br>
-    {{form1.opt24}}<br>
-    <strong>Type Your Response:</strong>{{form2.user_response2}}<br>
+    <strong>(A)</strong>&nbsp;{{form1.opt21}}<br>
+    <strong>(B)</strong>&nbsp;{{form1.opt22}}<br>
+    <strong>(C)</strong>&nbsp;{{form1.opt23}}<br>
+    <strong>(D)</strong>&nbsp;{{form1.opt24}}<br>
+    <br>
+    <strong>Type Your Response:</strong>&nbsp;{{form2.user_response2}}<br>
+    <br>
     <p><strong>Q3</strong>: {{ form1.promt3 }}</p>
-    {{form1.opt31}}<br>
-    {{form1.opt32}}<br>
-    {{form1.opt33}}<br>
-    {{form1.opt34}}<br>
-    <strong>Type Your Response:</strong>{{form2.user_response3}}<br>
+    <strong>(A)</strong>&nbsp;{{form1.opt31}}<br>
+    <strong>(B)</strong>&nbsp;{{form1.opt32}}<br>
+    <strong>(C)</strong>&nbsp;{{form1.opt33}}<br>
+    <strong>(D)</strong>&nbsp;{{form1.opt34}}<br>
+    <br>
+    <strong>Type Your Response:</strong>&nbsp;{{form2.user_response3}}<br>
+    <br>
     <p><strong>Q4</strong>: {{ form1.promt4 }}</p>
-    {{form1.opt41}}<br>
-    {{form1.opt42}}<br>
-    {{form1.opt43}}<br>
-    {{form1.opt44}}<br>
-    <strong>Type Your Response:</strong>{{form2.user_response4}}<br>
+    <strong>(A)</strong>&nbsp;{{form1.opt41}}<br>
+    <strong>(B)</strong>&nbsp;{{form1.opt42}}<br>
+    <strong>(C)</strong>&nbsp;{{form1.opt43}}<br>
+    <strong>(D)</strong>&nbsp;{{form1.opt44}}<br>
+    <br>
+    <strong>Type Your Response:</strong>&nbsp;{{form2.user_response4}}<br>
+    <br>
     <p><strong>Q5</strong>: {{ form1.promt5 }}</p>
-    {{form1.opt51}}<br>
-    {{form1.opt52}}<br>
-    {{form1.opt53}}<br>
-    {{form1.opt54}}<br>
-    <strong>Type Your Response:</strong>{{form2.user_response5}}<br>
+    <strong>(A)</strong>&nbsp;{{form1.opt51}}<br>
+    <strong>(B)</strong>&nbsp;{{form1.opt52}}<br>
+    <strong>(C)</strong>&nbsp;{{form1.opt53}}<br>
+    <strong>(D)</strong>&nbsp;{{form1.opt54}}<br>
+    <br>
+    <strong>Type Your Response:</strong>&nbsp;{{form2.user_response5}}<br>
+    <br>
 
 
     <p><strong>Q6</strong>: {{ form1.promt6 }}</p>
-    {{form1.opt61}}<br>
-    {{form1.opt62}}<br>
-    {{form1.opt63}}<br>
-    {{form1.opt64}}<br>
-    <strong>Type Your Response:</strong>{{form2.user_response6}}<br>
+    <strong>(A)</strong>&nbsp;{{form1.opt61}}<br>
+    <strong>(B)</strong>&nbsp;{{form1.opt62}}<br>
+    <strong>(C)</strong>&nbsp;{{form1.opt63}}<br>
+    <strong>(D)</strong>&nbsp;{{form1.opt64}}<br>
+    <br>
+    <strong>Type Your Response:</strong>&nbsp;{{form2.user_response6}}<br>
+    <br>
     <p><strong>Q7</strong>: {{ form1.promt7 }}</p>
-    {{form1.opt71}}<br>
-    {{form1.opt72}}<br>
-    {{form1.opt73}}<br>
-    {{form1.opt74}}<br>
-    <strong>Type Your Response:</strong>{{form2.user_response7}}<br>
+    <strong>(A)</strong>&nbsp;{{form1.opt71}}<br>
+    <strong>(B)</strong>&nbsp;{{form1.opt72}}<br>
+    <strong>(C)</strong>&nbsp;{{form1.opt73}}<br>
+    <strong>(D)</strong>&nbsp;{{form1.opt74}}<br>
+    <br>
+    <strong>Type Your Response:</strong>&nbsp;{{form2.user_response7}}<br>
+    <br>
     <p><strong>Q8</strong>: {{ form1.promt8 }}</p>
-    {{form1.opt81}}<br>
-    {{form1.opt82}}<br>
-    {{form1.opt83}}<br>
-    {{form1.opt84}}<br>
-    <strong>Type Your Response:</strong>{{form2.user_response8}}<br>
+    <strong>(A)</strong>&nbsp;{{form1.opt81}}<br>
+    <strong>(B)</strong>&nbsp;{{form1.opt82}}<br>
+    <strong>(C)</strong>&nbsp;{{form1.opt83}}<br>
+    <strong>(D)</strong>&nbsp;{{form1.opt84}}<br>
+    <br>
+    <strong>Type Your Response:</strong>&nbsp;{{form2.user_response8}}<br>
+    <br>
     <p><strong>Q9</strong>: {{ form1.promt9 }}</p>
-    {{form1.opt91}}<br>
-    {{form1.opt92}}<br>
-    {{form1.opt93}}<br>
-    {{form1.opt94}}<br>
-    <strong>Type Your Response:</strong>{{form2.user_response9}}<br>
+    <strong>(A)</strong>&nbsp;{{form1.opt91}}<br>
+    <strong>(B)</strong>&nbsp;{{form1.opt92}}<br>
+    <strong>(C)</strong>&nbsp;{{form1.opt93}}<br>
+    <strong>(D)</strong>&nbsp;{{form1.opt94}}<br>
+    <br>
+    <strong>Type Your Response:</strong>&nbsp;{{form2.user_response9}}<br>
+    <br>
     <p><strong>Q10</strong>: {{ form1.promt10 }}</p>
-    {{form1.opt101}}<br>
-    {{form1.opt102}}<br>
-    {{form1.opt103}}<br>
-    {{form1.opt104}}<br>
-    <strong>Type Your Response:</strong>{{form2.user_response10}}<br>
+    <strong>(A)</strong>&nbsp;{{form1.opt101}}<br>
+    <strong>(B)</strong>&nbsp;{{form1.opt102}}<br>
+    <strong>(C)</strong>&nbsp;{{form1.opt103}}<br>
+    <strong>(D)</strong>&nbsp;{{form1.opt104}}<br>
+    <br>
+    <strong>Type Your Response:</strong>&nbsp;{{form2.user_response10}}<br>
+    <br>
 
-    <input type="submit" value="Submit">
+
+
+    <br>
+    <button type="submit" class="btn btn-primary btn-lg">Submit Attempt</button>
 </form>
+</div>
+{%endblock%}
