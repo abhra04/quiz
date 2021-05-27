@@ -115,6 +115,7 @@ class pvtquizinfo(models.Model):
 	name = models.CharField(max_length=255,null=True)
 	password = models.CharField(max_length=255,null=True)
 	#number_of_questions = models.CharField(max_length=255,null=True)
+	publicPassword = models.BooleanField(default=False)
 
 class pvtquestion(models.Model):
 	pvtquizID = models.CharField(max_length=255,null=True)
