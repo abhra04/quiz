@@ -1,5 +1,20 @@
 {%  extends 'usermain.html' %}
 {% block content %}
+
+
+
+<script>
+
+     var sec = 0;
+    function pad ( val ) { return val > 9 ? val : "0" + val; }
+    setInterval( function(){
+        document.getElementById("seconds").innerHTML=pad(++sec%60);
+        document.getElementById("minutes").innerHTML=pad(parseInt(sec/60,10));
+    }, 1000);
+</script>
+
+
+
 <style>
 .wrapper {
  
@@ -7,6 +22,9 @@
 }
 </style>
 <div class="wrapper" >
+    <span id="minutes"></span>:<span id="seconds"></span>
+    <br>
+    <br>
 <form action="" method="post">
     {% csrf_token %}
 
