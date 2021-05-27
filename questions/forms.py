@@ -64,6 +64,7 @@ class privatequiz(forms.Form):
     name = forms.CharField(label='name' , max_length=255)
     #number_of_questions  = forms.CharField(label='number' , max_length=255)
     password = forms.CharField(label='pass' ,max_length=255,widget=forms.PasswordInput())
+    publicPassword = forms.BooleanField(required=False)
 
 class privatequizquestions(forms.Form):
     promt1 = forms.CharField(max_length=255)

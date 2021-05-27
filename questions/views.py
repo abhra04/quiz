@@ -324,11 +324,19 @@ def allrooms(request):
 		arr.append(y)
 	i = 1 
 	for item in arr:
-		link = '/questions/enterquiz/' + str(item['name'])
-		link2 = '/questions/pvtleaderboard/' + str(item['id'])
-		d[str(item['name'])] = (link,link2)
-		#print(d)
-		i = i  + 1
+		if item["publicPassword"] == True:
+			link = '/questions/enterquiz/' + str(item['name'])
+			link2 = '/questions/pvtleaderboard/' + str(item['id'])
+			d[str(item['name'])] = (link,link2,item["password"])
+			#print(d)
+			i = i  + 1
+		else:
+			link = '/questions/enterquiz/' + str(item['name'])
+			link2 = '/questions/pvtleaderboard/' + str(item['id'])
+			d[str(item['name'])] = (link,link2,"******")
+			#print(d)
+			i = i  + 1
+
 	#print(d)
 	return render(request , 'showroom.html' , {'form':d} )
 
