@@ -1,6 +1,6 @@
 # Quiz Application
 
-
+Live Hosting : https://quizyapp.herokuapp.com/questions/login/ (May not be live depending upon dynos availability on heroku)
 ## Are you someone who loves trivia?? Guess what you are at the right place. <br />
 This web app allows you to participate in quizzes varing over several categories.You may me someone interested in sports or may be a book worm, you can always find a challenging quiz to test your knowlede using this platform. <br />
 ![alt text](https://user-images.githubusercontent.com/50510683/124129932-e283b300-da9b-11eb-9977-440ae57828dc.png)
